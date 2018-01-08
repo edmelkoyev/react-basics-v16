@@ -3,9 +3,11 @@ import React, { Component } from 'react';
 import './App.css';
 import logo from './logo.svg';
 
+import ErrorBoundary from './components/ErrorBoundary';
 import LoginForm from './components/LoginForm';
 
 export default class App extends Component {
+
     render() {
         return (
             <div className="app">
@@ -15,9 +17,12 @@ export default class App extends Component {
                 </header>
 
                 <main>
-                    <LoginForm />
+                    <ErrorBoundary>
+                        <LoginForm />
+                    </ErrorBoundary>
                 </main>
             </div>
         );
+        
     }
 }
