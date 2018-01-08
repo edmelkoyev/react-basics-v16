@@ -7,9 +7,15 @@ export default class Tabs extends React.Component {
         activeTabIndex: 0
     };
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return this.state.activeTabIndex !== nextState.activeTabIndex;
+    }
+
     handleTabClick = tabIndex => this.setState({ activeTabIndex: tabIndex });
 
     render() {
+        console.log('Render');
+
         return (
             <div className="tabs">
                 <nav className="tab-bar">
